@@ -11,17 +11,8 @@ butakas = StringVar()
 boletos = StringVar()
 precio = StringVar()
 
-def show_data():
-    sala = entry_sala.get()
-    butakas = entry_butakas.get()
-    boletos = entry_boletos.get()
-    precio = entry_precio.get()
-    print(sala)
-    print(butakas)
-    print(boletos)
-    print(precio)
 
-def register():
+def crear_sala():
     sala = entry_sala.get()
     butakas = entry_butakas.get()
     boletos = entry_boletos.get()
@@ -32,7 +23,6 @@ def register():
     print(data)
     cine_db.insert_db(sala, butakas, boletos, precio)
 
-# Widgets dentro del contender APP
 frame_navbar = Frame(frame_app, width=400, height=100)
 frame_navbar.grid(row=0, column=0)
 frame_title = Frame(frame_app, width=400, height=150)
@@ -40,7 +30,6 @@ frame_title.grid(row=1, column=0)
 frame_options = Frame(frame_app, width=400, height=500)
 frame_options.grid(row=2, column=0)
 
-# Widgets dentro del contender OPTIONS
 frame_food = Frame(frame_options, width=350, height=500, bg="#d48df0")
 frame_food.place(x=25, y=30)
 label_sala = Label(frame_food, 
@@ -78,24 +67,22 @@ entry_precio = Entry(frame_food, justify=LEFT, width=30, font=("Calibri", "14", 
 entry_precio.place(x=20, y=310)
 
 
-button_register = Button(frame_food, text="Registrarme", command=register, font=("Calibri", "14", "bold"))
-button_register.place(x=20, y=350)
+button_agregar = Button(frame_food, text="Crear Sala", command=crear_sala, font=("Calibri", "14", "bold"))
+button_agregar.place(x=20, y=350)
 
-# Widgets dentro del contender NAVBAR
-title = Label(frame_navbar, 
-              text="Menú",
-              font=("Calibri", "14"))
+title = Label(frame_navbar, text="CINE LOVE",
+              font=("Century Gothic", "14"))
 title.place(x=320, y=40)
 
-# Widgets dentro del contender TITLE
+
 title1 = Label(frame_title, 
-              text="¡Bienvenido(a)!", 
-              font=("Calibri", "22", "bold"),
+             text="SALAS DE CINE", 
+              font=("Century Gothic", "22", "bold"),
               justify=LEFT)
 title1.place(x=25, y=10)
 title2 = Label(frame_title, 
-              text="¿Quieres ser parte de nuestra \ncomunidad?", 
-              font=("Calibri", "18"),
+              text="Todos los campos son obligartorios.", 
+              font=("Century Gothic", "14"),
               justify=LEFT)
 title2.place(x=25, y=50)
 
